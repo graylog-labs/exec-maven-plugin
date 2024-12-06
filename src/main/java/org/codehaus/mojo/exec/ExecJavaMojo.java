@@ -46,7 +46,7 @@ import static java.util.stream.Collectors.toList;
  * @author Kaare Nilsen (kaare.nilsen@gmail.com), David Smiley (dsmiley@mitre.org)
  * @since 1.0
  */
-@Mojo(name = "java", threadSafe = true, requiresDependencyResolution = ResolutionScope.TEST)
+@Mojo(name = "java", threadSafe = true, requiresDependencyResolution = ResolutionScope.COMPILE)
 public class ExecJavaMojo extends AbstractExecMojo {
     // Implementation note: Constants can be included in javadocs by {@value #MY_CONST}
     private static final String THREAD_STOP_UNAVAILABLE =
