@@ -8,8 +8,9 @@
     <version>86</version>
   </parent>
 
+  <groupId>org.graylog.repackaged</groupId>
   <artifactId>exec-maven-plugin</artifactId>
-  <version>3.5.1-SNAPSHOT</version>
+  <version>3.5.1.0-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>Exec Maven Plugin</name>
@@ -125,10 +126,10 @@
   </prerequisites>
 
   <scm>
-    <connection>scm:git:https://github.com/mojohaus/exec-maven-plugin.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/mojohaus/exec-maven-plugin.git</developerConnection>
+    <connection>scm:git:https://github.com/graylog-labs/exec-maven-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/graylog-labs/exec-maven-plugin.git</developerConnection>
     <tag>HEAD</tag>
-    <url>https://github.com/mojohaus/exec-maven-plugin/tree/master</url>
+    <url>https://github.com/graylog-labs/exec-maven-plugin/tree/master</url>
   </scm>
 
   <properties>
@@ -360,6 +361,42 @@
   </build>
 
   <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <configuration>
+              <keyname>B1606F22</keyname>
+            </configuration>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <version>1.6.13</version>
+            <extensions>true</extensions>
+            <configuration>
+              <serverId>sonatype-nexus-staging</serverId>
+              <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+              <autoReleaseAfterClose>true</autoReleaseAfterClose>
+              <autoDropAfterRelease>true</autoDropAfterRelease>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
     <profile>
       <!-- workaround for concurrent access to local repository on Windows -->
       <!-- https://issues.apache.org/jira/browse/MRESOLVER-372 -->
