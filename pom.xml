@@ -10,7 +10,7 @@
 
   <groupId>org.graylog.repackaged</groupId>
   <artifactId>exec-maven-plugin</artifactId>
-  <version>3.5.1.1</version>
+  <version>3.5.1.2-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>Exec Maven Plugin</name>
@@ -128,7 +128,7 @@
   <scm>
     <connection>scm:git:https://github.com/graylog-labs/exec-maven-plugin.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/graylog-labs/exec-maven-plugin.git</developerConnection>
-    <tag>3.5.1.1</tag>
+    <tag>HEAD</tag>
     <url>https://github.com/graylog-labs/exec-maven-plugin/tree/master</url>
   </scm>
 
@@ -137,7 +137,7 @@
     <slf4j.version>1.7.36</slf4j.version>
     <asm.version>9.7.1</asm.version>
     <invoker.parallelThreads>1C</invoker.parallelThreads>
-    <project.build.outputTimestamp>2024-12-06T12:39:21Z</project.build.outputTimestamp>
+    <project.build.outputTimestamp>2024-12-06T12:39:52Z</project.build.outputTimestamp>
     <maven-toolchains-plugin.version>3.2.0</maven-toolchains-plugin.version>
   </properties>
 
